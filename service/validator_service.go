@@ -67,10 +67,15 @@ func (service *ValidatorService) ListenForProposal(startBlock uint64) {
 				endBlock = latestBlock
 			}
 
-			it, _ := service.listenBridge.FilterProposalEvent(&bind.FilterOpts{
+			it, err := service.listenBridge.FilterProposalEvent(&bind.FilterOpts{
 				Start: blockNumber,
 				End:   &endBlock,
 			})
+
+			if err != nil {
+				log.Println("Error getting latest block:", err)
+				continue
+			}
 
 			for it.Next() {
 				event := it.Event

@@ -1,0 +1,7 @@
+docker run -d proposal-validator --rpc "https://rpc.ankr.com/polygon_mumbai/622d31bd5dc0851b5d945cfcb9df9b788009f56b060e39b4f0687e5097caf60f" --address "0x375A8E1Dd8BF0c40b64387e8Cbd37C596C29F281" --chain 80001 --privateKey "5d9c2730f8236a23fd47d6e83854b72722212975de0fb2583d09e758b8d2e55b"
+
+docker run -d proposal-validator --rpc "https://rpc.ankr.com/polygon_mumbai/622d31bd5dc0851b5d945cfcb9df9b788009f56b060e39b4f0687e5097caf60f" --address "0x375A8E1Dd8BF0c40b64387e8Cbd37C596C29F281" --chain 80001 --privateKey "8ef875001e800be11bf9c718892fd72eb445e95aa9e1c868763c37342d821913"
+
+docker run -d proposal-indexer --rpc "https://rpc.ankr.com/fantom_testnet/622d31bd5dc0851b5d945cfcb9df9b788009f56b060e39b4f0687e5097caf60f" --address "0x51BAbD1E45a88d50Def40C219C365eacac2C355D" --chain 4002 --privateKey "5d9c2730f8236a23fd47d6e83854b72722212975de0fb2583d09e758b8d2e55b"
+
+docker run -d proposal-indexer --rpc "https://rpc.ankr.com/fantom_testnet/622d31bd5dc0851b5d945cfcb9df9b788009f56b060e39b4f0687e5097caf60f" --address "0x51BAbD1E45a88d50Def40C219C365eacac2C355D" --chain 4002 --privateKey "8ef875001e800be11bf9c718892fd72eb445e95aa9e1c868763c37342d821913"

@@ -84,9 +84,20 @@ func (p *Validator) VoteProposal(proposalId [32]byte) {
 		log.Fatal(err)
 		return
 	}
+	clientNonce, err := p.client.PendingNonceAt(context.Background(), common.HexToAddress(p.address))
+	if err != nil {
+		log.Fatal(err)
+		return
+	}
+
+	nonce := p.GetNonce()
+
+	if nonce < clientNonce {
+		nonce = clientNonce
+	}
 
 	auth, _ := bind.NewKeyedTransactorWithChainID(p.privateKey, p.listenChainID)
-	auth.Nonce = big.NewInt(int64(p.GetNonce()))
+	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0)
 	auth.GasLimit = uint64(300000)
 	auth.GasPrice = gasPrice
