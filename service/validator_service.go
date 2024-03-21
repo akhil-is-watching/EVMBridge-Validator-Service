@@ -92,12 +92,11 @@ func (service *ValidatorService) ListenForProposal(startBlock uint64) {
 				go service.validator.VoteProposal(event.ProposalID)
 				service.cache.Add(event.Raw.TxHash)
 			}
-			blockNumber = endBlock + 1 // Move to the next block after the last processed block
-			time.Sleep(5 * time.Second)
+			blockNumber = endBlock + 1
 		}
 
 		startBlock = latestBlock
-		time.Sleep(20 * time.Second)
+		time.Sleep(10 * time.Second)
 	}
 
 }
